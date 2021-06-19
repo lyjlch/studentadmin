@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Title</title>
+		<link rel="stylesheet" href="css/common.css">
+		<link rel="stylesheet" type="text/css" href="css/StatisticalFigure.css"/>
+	</head>
+
+	<body>
+		<div class="container flgure">
+			<div class="content">
+				<ul class="clearfix info">
+					<li class="active">学生基本信息</li>
+					<li>web课程成绩信息</li>
+				</ul>
+				<div class="basic">
+					<div class="basicInfo select active ">
+						<div id="leave-statistical">
+						</div>
+						<div class="leave">
+							<ul>
+								<li>学生人数 : 123</li>
+								<li>在校人数 : 100</li>
+								<li>离校人数 : 23</li>
+							</ul>
+						</div>
+						<div id="gender-statistical"></div>
+						<div>
+							<ul class="gender">
+								<li>学生人数 : 123</li>
+								<li>男生人数 : 90</li>
+								<li>女生人数 : 33</li>
+							</ul>
+						</div>
+						<div id="province-statistical"></div>
+						<div>
+							<ul class="province clearfix">
+								<li>学生人数 : 123</li>
+								<li>重庆人数 : 67</li>
+								<li>四川人数 : 33</li>
+								<li>其他人数 : 23</li>
+							</ul>
+						</div>
+	
+					</div>
+					<div class="payInfo select ">
+						<div id="payInfo"></div>
+						<div id="payInfo1"></div>
+					</div>
+					<div class="employmentInfo select">
+						<div id="employment_industry"></div>
+						<div id="unit_properties" ></div>
+						<div id="postgraduate_employment" ></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<script src="js/echarts.min.js"></script>
+		<script src="js/china.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript" src="js/StudentBasicInformation.js"></script>
+		<script src="js/jquery-1.9.1.min.js"></script>
+		<script>
+			var list = [
+				{ value: 100, name: '在校' },
+				{ value: 23, name: '李校' }
+			];
+			data('leave-statistical', '学生在校离校统计表', list);
+			var list2 = [
+
+				{ value: 90, name: '男生' },
+				{ value: 33, name: '女生' }
+			];
+			data('gender-statistical', '男女比例统计表', list2);
+			var list3 = [
+				{ value: 67, name: '重庆' },
+				{ value: 33, name: '四川' },
+				{ value: 23, name: '其他' }
+			];
+			data('province-statistical', '学院学生的省份比例表', list3);
+			var payData = ['0-59', '60-69', '70-79', '80-89', '90-99'];
+			var moneyList =  [167,1233,2566,7854,243];
+			var personList = [3, 16, 34, 56, 7];
+			var payData1 = ['0-59', '60-69', '70-79', '80-89', '90-99'];
+			payInfoData('payInfo', '学生web课程分数统计表', payData, '人', '分', personList);
+			payInfoData('payInfo1', '学院历年学生web课程分数统计表', payData1, '人', '分', moneyList);
+
+		
+
+			$('.info li').click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+				$('.basic .select').eq($("ul li").index(this)).addClass("active").siblings().removeClass("active")
+			});
+		</script>
+
+	</body>
+
+</html>
