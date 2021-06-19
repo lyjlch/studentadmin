@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<link rel="stylesheet" type="text/css" href="css/common.css"/>
+		<link rel="stylesheet" type="text/css" href="css/TeacherInfo.css"/>
+	</head>
+	<body>
+		<div class="container flgure">
+			<div class="content">
+				<ul class="clearfix info">
+					<li class="active">课程</li>
+				</ul>
+				<div class="basic">
+					<div class="basicInfo select active">
+						<dl class="table-title">
+							<dt>序号</dt>
+							<dt>名称</dt>
+							<dt>教学班级</dt>
+							<dt>上课时间</dt>
+						</dl>
+						<dl >
+							<dd>1001</dd>
+							<dd>web应用基础</dd>
+							<dd>计算机类1904-6班</dd>
+							<dd>周一</dd>
+						</dl>
+						<dl>
+							<dd>1002</dd>
+							<dd>web应用基础</dd>
+							<dd>计算机类1901-3班</dd>
+							<dd>周二</dd>
+						</dl>
+						<ol>
+							<li class="active">1</li>
+							<li>2</li>
+							<li>&gt;</li>
+						</ol>
+					</div>
+						</ol>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<script src="js/jquery-1.9.1.min.js" type="text/javascript" charset="utf-8"></script>
+		<script type="text/javascript">
+			$('.info li').click(function() {
+				$(this).addClass("active").siblings().removeClass("active");
+				$('.basic .select').eq($("ul li").index(this)).addClass("active").siblings().removeClass("active")
+			});
+			$('.basicInfo ol').on('click','li',function(){
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+			$('.payInfo ol').on('click','li',function(){
+				$(this).addClass('active').siblings().removeClass('active');
+			});
+		</script>
+	</body>
+</html>
